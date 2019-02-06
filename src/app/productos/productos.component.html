@@ -1,0 +1,24 @@
+<h2>Productos</h2>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Nombre</th>
+        <th>Categoria</th>
+        <th>Usuario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{ producto.id }}</td>
+        <td>{{ producto.nombreCarta }}</td>
+        <td>{{ producto.Tipo }}</td>
+        <td>{{ producto.precio }} €</td>
+        <td><button type="button" class="btn btn-danger">Borrar</button>
+          <button type="button" class="btn btn-success">Editar</button>
+        </td>
+        </tr>
+        </tbody>
+  </table>
+</div>

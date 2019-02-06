@@ -1,0 +1,22 @@
+<h3>Listado de Proveedores</h3>
+<table class="table table-bordered table-striped tabla" style="margin-top: 40px;">
+  <thead>
+    <tr class="filters">
+      <th>Nombre</th>
+      <th>Correo Electrónico</th>
+      <th>Telefono</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let proveedor of proveedores">
+      <td>{{ proveedor.nombre }}</td>
+      <td><a href="mailto:{{ proveedor.email }}">{{ proveedor.email }}</a></td>
+      <td>{{ proveedor.telefono }}</td>
+      <td> <button  class="btn btn-info" routerLink="/proveedores/{{proveedor.cif}}">Ver
+          Datos</button>
+        <button  class="btn btn-danger" routerLink="/deleteproveedor/{{proveedor.cif}}">Borrar</button>
+      </td>
+    </tr>
+  </tbody>
+  <button (click)='nuevoProveedor()' class="btn btn-info">Nuevo proveedor</button>
+</table>

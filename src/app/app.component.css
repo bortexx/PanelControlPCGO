@@ -1,0 +1,34 @@
+.grid {
+  display: grid;
+  grid-template-areas: 
+  "main-menu, main-menu",
+  "aside-left-menu, container"
+}
+
+.main-menu {
+  grid-area: main-menu;
+}
+
+.aside-left-menu {
+  grid-area: aside-left-menu;
+}
+
+.container{
+    grid-area: container;
+    padding-top: 70px;
+    padding-left: 140px;
+}
+
+@media (max-width: 1015.5px) {
+    .container {
+        padding-left: 150px;
+        grid-area: container;
+        padding-top: 70px;
+    }
+    }
+@media (max-width: 767.5px) {
+    .container {
+        padding-left: 80px;
+        grid-area: container;
+        padding-top: 170px;    }
+  }
