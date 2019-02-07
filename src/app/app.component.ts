@@ -13,8 +13,8 @@ export class AppComponent {
   usuario: any = ""
 
   ngOnInit() {
-    this.logged = false;
-    this.login = true;
+    this.logged = true;
+    this.login = false;
   }
 
   public loginAdmin() {
