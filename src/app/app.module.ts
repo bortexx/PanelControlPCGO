@@ -14,6 +14,7 @@ import { RepositoryService } from 'src/app/servicios/repository.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosComponent } from './productos/productos.component';
 import { CategoriasComponent } from './categorias/categorias.component'; 
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,12 +27,14 @@ import { CategoriasComponent } from './categorias/categorias.component';
     VerclientesComponent,
     AsideleftnavComponent,
     ProductosComponent,
-    CategoriasComponent
+    CategoriasComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
+
   ],
   providers: [ProveedoresService, RepositoryService],
   bootstrap: [AppComponent]

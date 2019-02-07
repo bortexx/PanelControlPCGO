@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'routing';
+  login = true;
+  logged = false;
+  contrasenya: any = ""
+  usuario: any = ""
+
+  ngOnInit() {
+    this.logged = false;
+    this.login = true;
+  }
+
+  public loginAdmin() {
+    console.log(this.contrasenya)
+    console.log(this.usuario)
+
+  }
 }
