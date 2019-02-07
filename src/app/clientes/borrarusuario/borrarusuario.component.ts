@@ -12,7 +12,7 @@ export class BorrarusuarioComponent implements OnInit {
   //esto es para redirigir de nuevo al router
   router;
   ngOnInit() {
-
+    this.router.navigate("your path", "param");//el param es optativo claramente puto mono
   }
 
 }
