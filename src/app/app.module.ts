@@ -13,8 +13,9 @@ import { AsideleftnavComponent } from './asideleftnav/asideleftnav.component';
 import { RepositoryService } from 'src/app/servicios/repository.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosComponent } from './productos/productos.component';
-import { CategoriasComponent } from './categorias/categorias.component'; 
+import { CategoriasComponent } from './categorias/categorias.component';
 import { FormsModule } from '@angular/forms';
+import { BorrarusuarioComponent } from './clientes/borrarusuario/borrarusuario.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     AsideleftnavComponent,
     ProductosComponent,
     CategoriasComponent,
+    BorrarusuarioComponent
   ],
   imports: [
     BrowserModule,
