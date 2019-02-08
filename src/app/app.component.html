@@ -2,15 +2,15 @@
   <div class="login">
     <h1>Login</h1>
     <form name="form">
-      <div class="form-group">
-        <label>User</label>
+      <div class="form-group" name="user">
+        <label name="l-user">User</label>
         <input type=text name="nombre" [(ngModel)]="usuario" class="form-control">
       </div>
-      <div>
-        <label>Pass</label>
+      <div class="form-group" name="pass">
+        <label name="l-pass">Pass</label>
         <input type=text name="contrasenya" [(ngModel)]="contrasenya" class="form-control">
       </div>
-      <button (click)="loginAdmin()">Guardar</button>
+      <button name="boton" (click)="loginAdmin()">Guardar</button>
     </form>
   </div>
 </div>
