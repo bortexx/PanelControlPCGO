@@ -23,15 +23,15 @@ export class AppComponent {
   }
 
   public loginAdmin() {
-
-    this.repositoryService.checkLogin(this.contrasenya, this.usuario)/*.subscribe(n => {
+    this.repositoryService.checkLogin(this.contrasenya, this.usuario).subscribe(n => {
       for (let elemento in n) {
         this.admin.push(n[elemento]);
-        console.log(n);
+        console.log(n['status']);
+        if (n['status'] == "ok") {
+          this.logged = true;
+          this.login = false;
+        }
       }
-      console.log(hola);
-
     });
-*/
   }
 }

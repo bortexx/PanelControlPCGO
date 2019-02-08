@@ -19,12 +19,10 @@ export class RepositoryService {
     let myheader = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
     let body = new HttpParams();
     body = body.set('usuario', usuario);
-    body = body.set('password', password);
-    this.http
-      .post("http://localhost/pcgo/api/comprueba", body, {
-        headers: myheader,
-      })
-      .subscribe();
+    body = body.set('contrasenya', password);
+    return this.http.post("http://localhost/pcgo/api/comprueba", body, {
+      headers: myheader,
+    });
   }
 }
   //getProveedores() {
