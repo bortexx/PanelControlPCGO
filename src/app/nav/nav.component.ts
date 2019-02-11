@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cookie: CookieService) { }
 
   ngOnInit() {
-  }
 
+  }
+  public logout() {
+    if (this.cookie.check("login") == true) {
+      this.cookie.delete("login");
+      window.location.href = "";
+    }
+  }
 }

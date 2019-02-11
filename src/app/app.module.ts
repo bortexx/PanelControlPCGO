@@ -16,7 +16,7 @@ import { ProductosComponent } from './productos/productos.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { FormsModule } from '@angular/forms';
 import { BorrarusuarioComponent } from './clientes/borrarusuario/borrarusuario.component';
-
+import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +38,7 @@ import { BorrarusuarioComponent } from './clientes/borrarusuario/borrarusuario.c
     FormsModule
 
   ],
-  providers: [ProveedoresService, RepositoryService],
+  providers: [ProveedoresService, RepositoryService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

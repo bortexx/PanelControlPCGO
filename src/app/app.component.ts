@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { RepositoryService } from 'src/app/servicios/repository.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
+import { InicioComponent } from './inicio/inicio.component';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +10,8 @@ import { RepositoryService } from 'src/app/servicios/repository.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  constructor(private repositoryService: RepositoryService) { }
-
+  constructor( private repositoryService: RepositoryService,  private cookieService: CookieService) { }
+  
   title = 'routing';
   login = true;
   logged = false;
@@ -20,6 +22,12 @@ export class AppComponent {
   ngOnInit() {
     this.logged = false;
     this.login = true;
+    if (this.cookieService.check('login') == true ){
+      this.logged = true;
+      this.login = false;
+      console.log("hola");
+    }
+
   }
 
   public loginAdmin() {
@@ -28,10 +36,14 @@ export class AppComponent {
         this.admin.push(n[elemento]);
         console.log(n['status']);
         if (n['status'] == "ok") {
-          this.logged = true;
-          this.login = false;
+          this.cookieService.set( 'login', this.usuario );
+          window.location.href = "";
+
+         // this.router.navigate("/");         
         }
       }
     });
   }
+
+
 }
