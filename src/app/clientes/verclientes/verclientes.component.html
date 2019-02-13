@@ -1,5 +1,5 @@
 <h2>Clientes</h2>
-<div class="table-responsive">
+<div *ngIf="verUsuarios" class="table-responsive">
   <table class="table table-hover">
     <thead>
       <tr>
@@ -16,9 +16,35 @@
         <td>{{ cliente.correoElectronico }}</td>
         <td>{{ cliente.nombreUsuario }}</td>
         <td><button type="button" class="btn btn-danger">Borrar</button>
-          <button type="button" class="btn btn-success">Editar</button>
+        <button type="button" (click)="editarCliente(cliente)" class="btn btn-success">Editar</button>
         </td>
         </tr>
         </tbody>
   </table>
 </div>
+
+<div *ngIf="modificarUsuario" class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Nombre</th>
+        <th>e-mail</th>
+        <th>Usuario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ idModificar }}</td>
+        <td><input type="text" name="nombre" [(ngModel)]="nombreModificar" placeholder={{nombreModificar}}></td>
+        <td><input type="text" name="usuario" [(ngModel)]="usuarioModificar" placeholder={{usuarioModificar}}></td>
+        <td><input type="text" name="correo" [(ngModel)]="correoModificar" placeholder={{correoModificar}}></td>
+        <td><button type="button" (click)="cambiarVista()" class="btn btn-danger">Cancelar</button>
+        <button type="button" (click)="mandarDatosEditar()" class="btn btn-success">Editar</button>
+        </td>
+        </tr>
+        </tbody>
+  </table>
+</div>
+
+

@@ -9,16 +9,46 @@ import { RepositoryService } from 'src/app/servicios/repository.service';
 })
 export class VerclientesComponent implements OnInit {
   clientes: any[] = [];
+  verUsuarios = true;
+  modificarUsuario = false;
+  public idModificar:Number;
+  public nombreModificar:string;
+  public usuarioModificar:string;
+  public correoModificar:string;
 
   constructor(activateRoute: ActivatedRoute, private repositoryService: RepositoryService) { }
   ngOnInit() {
     this.repositoryService.getModules("usuarios").subscribe(n => {
       for (let elemento in n) {
         this.clientes.push(n[elemento]);
-        console.log(n[elemento]);
       }
     });
-
-
   }
+
+  editarCliente(cliente){
+    this.cambiarVista();
+    this.idModificar = cliente.id;
+    this.nombreModificar = cliente.nombre;
+    this.correoModificar = cliente.correoElectronico;
+    this.usuarioModificar = cliente.nombreUsuario;
+  }
+
+  mandarDatosEditar(){
+    this.verUsuarios = true;
+    this.modificarUsuario = false;
+    this.repositoryService.editarCliente("usuarios",this.idModificar,this.nombreModificar,this.correoModificar,this.usuarioModificar);
+    window.location.reload();
+  }
+
+  cambiarVista(){
+    if(this.verUsuarios == false){
+      this.verUsuarios = true;
+      this.modificarUsuario = false;
+    }else{
+      this.verUsuarios = false;
+      this.modificarUsuario = true;
+    }
+  }
+
+
 }
