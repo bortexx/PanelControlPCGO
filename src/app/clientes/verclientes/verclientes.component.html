@@ -15,7 +15,7 @@
         <td>{{ cliente.nombre }}</td>
         <td>{{ cliente.correoElectronico }}</td>
         <td>{{ cliente.nombreUsuario }}</td>
-        <td><button type="button" class="btn btn-danger">Borrar</button>
+        <td><button (click)="deleteClientes(cliente.id)" type="button" class="btn btn-danger">Borrar</button>
           <button type="button" class="btn btn-success">Editar</button>
         </td>
         </tr>

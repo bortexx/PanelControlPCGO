@@ -11,7 +11,7 @@
       <tr *ngFor="let categoria of categorias">
         <td>{{ categoria.id }}</td>
         <td>{{ categoria.Nombre }}</td>
-        <td><button type="button" class="btn btn-danger">Borrar</button>
+        <td><button (click)="deleteCategorias(categoria.id)" type="button" class="btn btn-danger">Borrar</button>
           <button type="button" class="btn btn-success">Editar</button>
         </td>
         </tr>

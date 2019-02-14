@@ -19,4 +19,8 @@ categorias:any[] = []
     });
   }
 
+  deleteCategorias(id: any, tabla='categorias') {
+    this.repositoryService.deleteModules(id, tabla);
+  }
+
 }

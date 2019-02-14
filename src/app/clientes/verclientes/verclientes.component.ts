@@ -18,7 +18,9 @@ export class VerclientesComponent implements OnInit {
         console.log(n[elemento]);
       }
     });
+  }
 
-
+  deleteClientes(id: any, tabla='usuarios') {
+    this.repositoryService.deleteModules(id, tabla);
   }
 }

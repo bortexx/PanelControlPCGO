@@ -15,7 +15,7 @@
         <td>{{ producto.nombreCarta }}</td>
         <td>{{ producto.Tipo }}</td>
         <td>{{ producto.precio }} €</td>
-        <td><button type="button" class="btn btn-danger">Borrar</button>
+        <td><button (click)="deleteProducto(producto.id)" type="button" class="btn btn-danger">Borrar</button>
           <button type="button" class="btn btn-success">Editar</button>
         </td>
         </tr>
