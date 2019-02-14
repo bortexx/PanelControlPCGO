@@ -24,6 +24,7 @@ export class RepositoryService {
       headers: myheader,
     });
   }
+  
   editarCliente(url: any, id: any, nombreCambiar: string, emailCambiar: string, usuarioCambiar: string) {
     let myheader = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     let body = new HttpParams();

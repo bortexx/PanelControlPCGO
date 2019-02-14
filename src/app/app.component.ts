@@ -14,15 +14,15 @@ export class AppComponent {
   constructor(private repositoryService: RepositoryService, private cookieService: CookieService) { }
 
   title = 'routing';
-  login = true;
-  logged = false;
+  login = false;
+  logged = true;
   contrasenya: any = ""
   usuario: any = ""
   admin: any[] = [];
 
   ngOnInit() {
-    this.logged = false;
-    this.login = true;
+    this.logged = true;
+    this.login = false;
     if (this.cookieService.check('login') == true) {
       this.logged = true;
       this.login = false;
