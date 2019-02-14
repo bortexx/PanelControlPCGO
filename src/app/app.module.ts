@@ -13,8 +13,10 @@ import { AsideleftnavComponent } from './asideleftnav/asideleftnav.component';
 import { RepositoryService } from 'src/app/servicios/repository.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosComponent } from './productos/productos.component';
-import { CategoriasComponent } from './categorias/categorias.component'; 
-
+import { CategoriasComponent } from './categorias/categorias.component';
+import { FormsModule } from '@angular/forms';
+import { BorrarusuarioComponent } from './clientes/borrarusuario/borrarusuario.component';
+import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,14 +28,17 @@ import { CategoriasComponent } from './categorias/categorias.component';
     VerclientesComponent,
     AsideleftnavComponent,
     ProductosComponent,
-    CategoriasComponent
+    CategoriasComponent,
+    BorrarusuarioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
+
   ],
-  providers: [ProveedoresService, RepositoryService],
+  providers: [ProveedoresService, RepositoryService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

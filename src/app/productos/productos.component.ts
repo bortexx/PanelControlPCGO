@@ -17,7 +17,6 @@ export class ProductosComponent implements OnInit {
     this.repositoryService.getModules("productos").subscribe(n => {
       for (let elemento in n) {
         this.productos.push(n[elemento]);
-        console.log(n[elemento]);
       }
     });
 

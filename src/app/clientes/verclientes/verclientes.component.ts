@@ -15,7 +15,6 @@ export class VerclientesComponent implements OnInit {
     this.repositoryService.getModules("usuarios").subscribe(n => {
       for (let elemento in n) {
         this.clientes.push(n[elemento]);
-        console.log(n[elemento]);
       }
     });
 

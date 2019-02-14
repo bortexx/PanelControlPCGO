@@ -16,7 +16,6 @@ export class VerproveedorComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.cif);
     this.proveedor = this.proveedoresService.getProveedor(this.cif);
   }
 
