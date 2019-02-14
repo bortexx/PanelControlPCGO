@@ -41,13 +41,8 @@ export class VerclientesComponent implements OnInit {
   }
 
   cambiarVista(){
-    if(this.verUsuarios == false){
-      this.verUsuarios = true;
-      this.modificarUsuario = false;
-    }else{
       this.verUsuarios = false;
       this.modificarUsuario = true;
-    }
   }
 
 
