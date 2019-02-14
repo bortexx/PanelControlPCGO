@@ -16,48 +16,80 @@ export class ProductosComponent implements OnInit {
   public pos: Number;
   public verProductos = true;
   public modificarProducto = false;
-  public idModificar:Number;
-  public nombreModificar:string;
-  public categoriaModificar:string;
-  public categoriaProducto:string;
-  public precioModificar:Number;
+  public idModificar: Number;
+  public nombreModificar: string;
+  public categoriaModificar: string;
+  public categoriaProducto: string;
+  public precioModificar: Number;
+  public nombreAdd: string;
+  public categoriasAdd: string;
+  public precioAdd: string;
+  modificarProductos = false;
+  addProductos = false;
 
   ngOnInit() {
 
     this.repositoryService.getModules("productos").subscribe(n => {
       for (let elemento in n) {
         this.productos.push(n[elemento]);
-        this.pos = this.categorias.findIndex(m=>m==n[elemento].Tipo);
-          if(this.pos<0){
-            this.categorias.push(n[elemento].Tipo);
-          }
+        this.pos = this.categorias.findIndex(m => m == n[elemento].Tipo);
+        if (this.pos < 0) {
+          this.categorias.push(n[elemento].Tipo);
+        }
       }
     });
-}
+  }
 
-cambiarVista(){
-  this.verProductos = true;
-  this.modificarProducto = false;
-}
+  cambiarVista() {
+    this.verProductos = true;
+    this.modificarProducto = false;
+  }
 
-editarProducto(producto){
-  this.verProductos = false;
-  this.modificarProducto = true;
-  this.idModificar = producto.id;
-  this.nombreModificar = producto.nombreCarta;
-  this.precioModificar = producto.precio;
-  this.categoriaProducto = producto.Tipo;
-}
+  editarProducto(producto) {
+    this.verProductos = false;
+    this.modificarProducto = true;
+    this.idModificar = producto.id;
+    this.nombreModificar = producto.nombreCarta;
+    this.precioModificar = producto.precio;
+    this.categoriaProducto = producto.Tipo;
+  }
 
-mandarDatosEditar(){
-  this.verProductos = true;
-  this.modificarProducto = false;
-  this.repositoryService.editarProducto("productos",this.idModificar,this.nombreModificar,this.categoriaModificar,this.precioModificar);
-  window.location.reload();
-}
+  mandarDatosEditar() {
+    this.verProductos = true;
+    this.modificarProducto = false;
+    this.repositoryService.editarProducto("productos", this.idModificar, this.nombreModificar, this.categoriaModificar, this.precioModificar);
+    window.location.reload();
+  }
 
-cambiarCategoriaSeleccionada(cat){
-  this.categoriaModificar = cat;
-}
+  /*cambiarCategoriaSeleccionada(cat) {
+    this.categoriaModificar = cat;
+  }
+
+
+  cambiarCategoriaSeleccionada(cat) {
+    this.categoriasAdd = cat;
+  }
+*/
+  mandarDatosAdd() {
+    this.repositoryService.addProductos("productos", this.nombreAdd, this.categoriasAdd, this.precioAdd);
+    window.location.reload();
+  }
+
+  cambiarVistaAdd() {
+    this.addProductos = true;
+    this.verProductos = false;
+    this.modificarProductos = false;
+
+
+  }
+
+  cambiarVistaVer() {
+    this.addProductos = false;
+    this.verProductos = true;
+    this.modificarProductos = false;
+
+
+  }
+
 
 }

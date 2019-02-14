@@ -21,8 +21,8 @@ export class AppComponent {
   admin: any[] = [];
 
   ngOnInit() {
-    this.logged = true;
-    this.login = false;
+    this.logged = false;
+    this.login = true;
     if (this.cookieService.check('login') == true) {
       this.logged = true;
       this.login = false;

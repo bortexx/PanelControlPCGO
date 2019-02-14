@@ -7,16 +7,23 @@ import { RepositoryService } from 'src/app/servicios/repository.service';
   templateUrl: './verclientes.component.html',
   styleUrls: ['./verclientes.component.css']
 })
+
 export class VerclientesComponent implements OnInit {
   clientes: any[] = [];
   verUsuarios = true;
   modificarUsuario = false;
-  public idModificar:Number;
-  public nombreModificar:string;
-  public usuarioModificar:string;
-  public correoModificar:string;
+  public idModificar: Number;
+  public nombreModificar: string;
+  public usuarioModificar: string;
+  public correoModificar: string;
+
+  public nombreAdd: string;
+  public usuarioAdd: string;
+  public correoAdd: string;
+  addUsuario = false;
 
   constructor(activateRoute: ActivatedRoute, private repositoryService: RepositoryService) { }
+
   ngOnInit() {
     this.repositoryService.getModules("usuarios").subscribe(n => {
       for (let elemento in n) {
@@ -25,7 +32,7 @@ export class VerclientesComponent implements OnInit {
     });
   }
 
-  editarCliente(cliente){
+  editarCliente(cliente) {
     this.cambiarVista();
     this.idModificar = cliente.id;
     this.nombreModificar = cliente.nombre;
@@ -33,16 +40,38 @@ export class VerclientesComponent implements OnInit {
     this.usuarioModificar = cliente.nombreUsuario;
   }
 
-  mandarDatosEditar(){
+  mandarDatosEditar() {
     this.verUsuarios = true;
     this.modificarUsuario = false;
-    this.repositoryService.editarCliente("usuarios",this.idModificar,this.nombreModificar,this.correoModificar,this.usuarioModificar);
+    this.repositoryService.editarCliente("usuarios", this.idModificar, this.nombreModificar, this.correoModificar, this.usuarioModificar);
     window.location.reload();
   }
 
-  cambiarVista(){
-      this.verUsuarios = false;
-      this.modificarUsuario = true;
+  cambiarVista() {
+    this.verUsuarios = false;
+    this.modificarUsuario = true;
+  }
+
+
+  mandarDatosAdd() {
+    this.repositoryService.addCliente("registro", this.nombreAdd, this.correoAdd, this.usuarioAdd);
+    window.location.reload();
+  }
+
+  cambiarVistaAdd() {
+    this.addUsuario = true;
+    this.verUsuarios = false;
+    this.modificarUsuario = false;
+
+
+  }
+
+  cambiarVistaVer() {
+    this.addUsuario = false;
+    this.verUsuarios = true;
+    this.modificarUsuario = false;
+
+
   }
 
 

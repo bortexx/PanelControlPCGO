@@ -4,10 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { NavComponent } from './nav/nav.component';
-import { ProveedoresComponent } from './proveedores/proveedores.component';
-import { ProveedoresService } from 'src/app/servicios/proveedores.service';
-import { NuevoproveedorcomponentComponent } from './proveedores/nuevoproveedorcomponent/nuevoproveedorcomponent.component';
-import { VerproveedorComponent } from './proveedores/verproveedor/verproveedor.component';
 import { VerclientesComponent } from './clientes/verclientes/verclientes.component';
 import { AsideleftnavComponent } from './asideleftnav/asideleftnav.component';
 import { RepositoryService } from 'src/app/servicios/repository.service';
@@ -22,9 +18,6 @@ import { CookieService } from 'ngx-cookie-service';
     AppComponent,
     InicioComponent,
     NavComponent,
-    ProveedoresComponent,
-    NuevoproveedorcomponentComponent,
-    VerproveedorComponent,
     VerclientesComponent,
     AsideleftnavComponent,
     ProductosComponent,
@@ -37,7 +30,7 @@ import { CookieService } from 'ngx-cookie-service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ProveedoresService, RepositoryService, CookieService],
+  providers: [RepositoryService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

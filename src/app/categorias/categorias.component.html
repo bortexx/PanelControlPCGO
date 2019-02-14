@@ -5,7 +5,9 @@
       <tr>
         <th>id</th>
         <th>Nombre</th>
-      </tr>
+        <th><button type="button" (click)="cambiarVistaAdd()" class="btn btn-primary">Añadir Categoria</button></th>
+      
+        </tr>
     </thead>
     <tbody>
       <tr *ngFor="let categoria of categorias">
@@ -33,6 +35,27 @@
         <td><input type="text" name="nombre" [(ngModel)]="nombreModificar" placeholder={{nombreModificar}}></td>
         <td><button type="button" (click)="cambiarVista()"class="btn btn-danger">Cancelar</button>
           <button type="button" (click)="confirmarEditarCategoria()" class="btn btn-success">Editar</button>
+        </td>
+        </tr>
+        </tbody>
+  </table>
+</div>
+
+
+
+<div *ngIf="addCategoria" class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" name="nombre" [(ngModel)]="nombreAdd" placeholder={{nombreAdd}}></td>
+     
+        <td><button type="button" (click)="cambiarVistaVer()" class="btn btn-danger">Cancelar</button>
+        <button type="button" (click)="mandarDatosAdd()" class="btn btn-success">Aceptar</button>
         </td>
         </tr>
         </tbody>
