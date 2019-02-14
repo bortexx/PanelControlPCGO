@@ -12,6 +12,8 @@ export class VerclientesComponent implements OnInit {
   clientes: any[] = [];
   verUsuarios = true;
   modificarUsuario = false;
+  addUsuario = false;
+
   public idModificar: Number;
   public nombreModificar: string;
   public usuarioModificar: string;
@@ -20,7 +22,6 @@ export class VerclientesComponent implements OnInit {
   public nombreAdd: string;
   public usuarioAdd: string;
   public correoAdd: string;
-  addUsuario = false;
 
   constructor(activateRoute: ActivatedRoute, private repositoryService: RepositoryService) { }
 
@@ -62,8 +63,6 @@ export class VerclientesComponent implements OnInit {
     this.addUsuario = true;
     this.verUsuarios = false;
     this.modificarUsuario = false;
-
-
   }
 
   cambiarVistaVer() {
@@ -72,6 +71,11 @@ export class VerclientesComponent implements OnInit {
     this.modificarUsuario = false;
 
 
+  }
+
+  
+  deleteClientes(id: any, tabla='usuarios') {
+    this.repositoryService.deleteModules(id, tabla);
   }
 
 

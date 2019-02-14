@@ -11,8 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductosComponent } from './productos/productos.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { FormsModule } from '@angular/forms';
-import { BorrarusuarioComponent } from './clientes/borrarusuario/borrarusuario.component';
 import { CookieService } from 'ngx-cookie-service';
+import { PedidosComponent } from './pedidos/pedidos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,7 @@ import { CookieService } from 'ngx-cookie-service';
     AsideleftnavComponent,
     ProductosComponent,
     CategoriasComponent,
-    BorrarusuarioComponent
+    PedidosComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,7 @@
         <td>{{ producto.nombreCarta }}</td>
         <td>{{ producto.Tipo }}</td>
         <td>{{ producto.precio }} €</td>
-        <td><button type="button" class="btn btn-danger">Borrar</button>
+        <td><button (click)="deleteProducto(producto.id)" type="button" class="btn btn-danger">Borrar</button>
           <button type="button" (click)="editarProducto(producto)" class="btn btn-success">Editar</button>
         </td>
         </tr>
@@ -65,7 +65,7 @@
       <tr>
         <td><input type="text" name="nombre" [(ngModel)]="nombreAdd" placeholder={{nombreAdd}}></td>
        
-        <td><select (change)="cambiarCategoriaSeleccionada($event.target.value)"  name="cats">
+        <td><select (change)="addCategoriaSeleccionada($event.target.value)"  name="cats">
           <option *ngFor="let cate of categorias" value={{cate}}>{{cate}}</option>
           </select></td>
 

@@ -25,6 +25,13 @@ export class RepositoryService {
     });
   }
 
+  deleteModules(id: any, tabla: String) {
+    let myHeader = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.delete("http://localhost/pcgo/api/" + tabla + "/" + id).subscribe((data) => {
+      location.reload();
+    });
+  }
+
   editarCliente(url: any, id: any, nombreCambiar: string, emailCambiar: string, usuarioCambiar: string) {
     let myheader = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     let body = new HttpParams();
@@ -73,8 +80,7 @@ export class RepositoryService {
     body = body.set('usuario', usuario);
     let urlPost = this.configUrl + url;
     return this.http.post(urlPost, body, { headers: myheader }).subscribe(
-      response => alert("ok"),
-      error => alert("error")
+
     );
   }
 
@@ -98,7 +104,7 @@ export class RepositoryService {
     body = body.set('precio', precio);
     let urlPost = this.configUrl + url;
     return this.http.post(urlPost, body, { headers: myheader }).subscribe(
-      response => alert("ok"),
+      response => alert("Producto Insertado Correctamente"),
       error => alert("error")
     );
   }

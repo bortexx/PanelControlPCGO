@@ -6,22 +6,22 @@
         <th>id</th>
         <th>Nombre</th>
         <th><button type="button" (click)="cambiarVistaAdd()" class="btn btn-primary">Añadir Categoria</button></th>
-      
-        </tr>
+
+      </tr>
     </thead>
     <tbody>
       <tr *ngFor="let categoria of categorias">
         <td>{{ categoria.id }}</td>
         <td>{{ categoria.Nombre }}</td>
-        <td><button type="button" class="btn btn-danger">Borrar</button>
+        <td><button (click)="deleteCategorias(categoria.id)" type="button" class="btn btn-danger">Borrar</button>
           <button type="button" (click)="editarCategoria(categoria)" class="btn btn-success">Editar</button>
         </td>
-        </tr>
-        </tbody>
+      </tr>
+    </tbody>
   </table>
 </div>
 
-<div *ngIf="modificarCategorias"class="table-responsive">
+<div *ngIf="modificarCategorias" class="table-responsive">
   <table class="table table-hover">
     <thead>
       <tr>
@@ -33,11 +33,11 @@
       <tr>
         <td>{{idModificar}}</td>
         <td><input type="text" name="nombre" [(ngModel)]="nombreModificar" placeholder={{nombreModificar}}></td>
-        <td><button type="button" (click)="cambiarVista()"class="btn btn-danger">Cancelar</button>
+        <td><button type="button" (click)="cambiarVista()" class="btn btn-danger">Cancelar</button>
           <button type="button" (click)="confirmarEditarCategoria()" class="btn btn-success">Editar</button>
         </td>
-        </tr>
-        </tbody>
+      </tr>
+    </tbody>
   </table>
 </div>
 
@@ -53,11 +53,11 @@
     <tbody>
       <tr>
         <td><input type="text" name="nombre" [(ngModel)]="nombreAdd" placeholder={{nombreAdd}}></td>
-     
+
         <td><button type="button" (click)="cambiarVistaVer()" class="btn btn-danger">Cancelar</button>
-        <button type="button" (click)="mandarDatosAdd()" class="btn btn-success">Aceptar</button>
+          <button type="button" (click)="mandarDatosAdd()" class="btn btn-success">Aceptar</button>
         </td>
-        </tr>
-        </tbody>
+      </tr>
+    </tbody>
   </table>
 </div>

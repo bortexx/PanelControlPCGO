@@ -45,27 +45,26 @@ export class CategoriasComponent implements OnInit {
   }
 
 
-  mandarDatosAdd(){
-    this.repositoryService.addCategoria("categorias",this.nombreAdd);
+  mandarDatosAdd() {
+    this.repositoryService.addCategoria("categorias", this.nombreAdd);
+    
     window.location.reload();
   }
 
-  cambiarVistaAdd(){
-      this.addCategoria = true;
-      this.verCategoria = false;
-      this.modificarCategoria = false;
-
-
+  cambiarVistaAdd() {
+    this.addCategoria = true;
+    this.verCategorias = false;
+    this.modificarCategoria = false;
   }
 
-  cambiarVistaVer(){
+  cambiarVistaVer() {
     this.addCategoria = false;
-    this.verCategoria = true;
+    this.verCategorias = true;
     this.modificarCategoria = false;
+  }
 
 
-}
-
-
-
+  deleteCategorias(id: any, tabla = 'categorias') {
+    this.repositoryService.deleteModules(id, tabla);
+  }
 }

@@ -28,8 +28,8 @@ export class ProductosComponent implements OnInit {
   addProductos = false;
 
   ngOnInit() {
-
     this.repositoryService.getModules("productos").subscribe(n => {
+      this.categorias.length = 0;
       for (let elemento in n) {
         this.productos.push(n[elemento]);
         this.pos = this.categorias.findIndex(m => m == n[elemento].Tipo);
@@ -38,6 +38,10 @@ export class ProductosComponent implements OnInit {
         }
       }
     });
+  }
+
+  deleteProducto(id: any, tabla = 'productos') {
+    this.repositoryService.deleteModules(id, tabla);
   }
 
   cambiarVista() {
@@ -61,18 +65,20 @@ export class ProductosComponent implements OnInit {
     window.location.reload();
   }
 
-  /*cambiarCategoriaSeleccionada(cat) {
+  addCategoriaSeleccionada(cat:string) {
+    console.log(cat);
+    this.categoriasAdd = cat;
+  }
+
+
+  cambiarCategoriaSeleccionada(cat:string) {
     this.categoriaModificar = cat;
   }
 
-
-  cambiarCategoriaSeleccionada(cat) {
-    this.categoriasAdd = cat;
-  }
-*/
   mandarDatosAdd() {
     this.repositoryService.addProductos("productos", this.nombreAdd, this.categoriasAdd, this.precioAdd);
     window.location.reload();
+
   }
 
   cambiarVistaAdd() {

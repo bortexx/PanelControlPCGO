@@ -4,10 +4,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { VerclientesComponent } from './clientes/verclientes/verclientes.component';
 import { ProductosComponent } from './productos/productos.component';
 import { CategoriasComponent } from './categorias/categorias.component';
-
-//import { NuevoProveedorComponent } from './proveedores/proveedores.component';
-
-//import { BorrarProveedorComponent } from './proveedores/proveedores.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
 
 
 const routes: Routes = [
@@ -17,9 +14,11 @@ const routes: Routes = [
   { path: 'clientes', component: VerclientesComponent },
   { path: 'productos', component: ProductosComponent },
   { path: 'categorias', component: CategoriasComponent },
+  { path: 'pedidos', component: PedidosComponent },
+
+
+  //{ path: 'cliente/:id', component: BorrarClienteComponent },
   //{ path: 'proveedores/:cif', component: VerproveedorComponent },
-  //{ path: 'newproveedor', component: NuevoProveedorComponent },
-  //{ path: 'deleteproveedor/:id', component: BorrarProveedorComponent },
 
 
 ];
