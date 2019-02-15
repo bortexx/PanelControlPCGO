@@ -28,7 +28,7 @@ export class RepositoryService {
   deleteModules(id: any, tabla: String) {
     let myHeader = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     return this.http.delete("http://localhost/pcgo/api/" + tabla + "/" + id).subscribe((data) => {
-      location.reload();
+      window.location.href = "";
     });
   }
 

@@ -62,7 +62,7 @@ export class ProductosComponent implements OnInit {
     this.verProductos = true;
     this.modificarProducto = false;
     this.repositoryService.editarProducto("productos", this.idModificar, this.nombreModificar, this.categoriaModificar, this.precioModificar);
-    window.location.reload();
+    window.location.href = "";
   }
 
   addCategoriaSeleccionada(cat:string) {
@@ -77,7 +77,7 @@ export class ProductosComponent implements OnInit {
 
   mandarDatosAdd() {
     this.repositoryService.addProductos("productos", this.nombreAdd, this.categoriasAdd, this.precioAdd);
-    window.location.reload();
+    window.location.href = "";
 
   }
 

@@ -41,14 +41,14 @@ export class CategoriasComponent implements OnInit {
     this.verCategorias = true;
     this.modificarCategorias = false;
     this.repositoryService.editarCategoria("categorias", this.idModificar, this.nombreModificar);
-    window.location.reload();
+    window.location.href = "";
   }
 
 
   mandarDatosAdd() {
     this.repositoryService.addCategoria("categorias", this.nombreAdd);
-    
-    window.location.reload();
+  
+    window.location.href = "";
   }
 
   cambiarVistaAdd() {

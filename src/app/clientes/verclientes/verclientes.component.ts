@@ -45,7 +45,7 @@ export class VerclientesComponent implements OnInit {
     this.verUsuarios = true;
     this.modificarUsuario = false;
     this.repositoryService.editarCliente("usuarios", this.idModificar, this.nombreModificar, this.correoModificar, this.usuarioModificar);
-    window.location.reload();
+    window.location.href = "";
   }
 
   cambiarVista() {
@@ -56,7 +56,7 @@ export class VerclientesComponent implements OnInit {
 
   mandarDatosAdd() {
     this.repositoryService.addCliente("registro", this.nombreAdd, this.correoAdd, this.usuarioAdd);
-    window.location.reload();
+    window.location.href = "";
   }
 
   cambiarVistaAdd() {
