@@ -1,0 +1,27 @@
+<div class="container" *ngIf="login">
+  <div class="login">
+    <h1>Login</h1>
+    <form name="form">
+      <div class="form-group" name="user">
+        <label name="l-user">User</label>
+        <input type=text name="nombre" [(ngModel)]="usuario" class="form-control">
+      </div>
+      <div class="form-group" name="pass">
+        <label  name="l-pass">Pass</label>
+        <input type=password name="contrasenya" [(ngModel)]="contrasenya" class="form-control">
+      </div>
+      <button name="boton" (click)="loginAdmin()">Guardar</button>
+    </form>
+  </div>
+</div>
+
+<body cz-shortcut-listen="true" *ngIf="logged">
+  <div class="main-menu">
+    <app-nav></app-nav>
+  </div>
+  <div class="aside-left-menu">
+    <app-asideleftnav></app-asideleftnav>
+  </div>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>

@@ -1,0 +1,80 @@
+<h2>Productos</h2>
+<div *ngIf="verProductos" class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Nombre</th>
+        <th>Categoria</th>
+        <th>Precio</th>
+        <th><button type="button" (click)="cambiarVistaAdd()" class="btn btn-primary">Añadir Producto</button></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{ producto.id }}</td>
+        <td>{{ producto.nombreCarta }}</td>
+        <td>{{ producto.Tipo }}</td>
+        <td>{{ producto.precio }} €</td>
+        <td><button (click)="deleteProducto(producto.id)" type="button" class="btn btn-danger">Borrar</button>
+          <button type="button" (click)="editarProducto(producto)" class="btn btn-success">Editar</button>
+        </td>
+        </tr>
+        </tbody>
+  </table>
+</div>
+
+<div *ngIf="modificarProducto" class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Nombre</th>
+        <th>Categoria</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ idModificar }}</td>
+        <td><input type="text" name="nombre" [(ngModel)]="nombreModificar" placeholder={{nombreModificar}}></td>
+        <td><select (change)="cambiarCategoriaSeleccionada($event.target.value)" [(ngModel)]="categoriaProducto" name="cats">
+        <option *ngFor="let cate of categorias" value={{cate}}>{{cate}}</option>
+        </select></td>
+        <td><input type="text" name="precio" [(ngModel)]="precioModificar" placeholder={{precioModificar}}> €</td>
+        <td><button type="button" (click)="cambiarVista()" class="btn btn-danger">Cancelar</button>
+          <button type="button" (click)="mandarDatosEditar()" class="btn btn-success">Editar</button>
+        </td>
+        </tr>
+        </tbody>
+  </table>
+</div>
+
+
+
+<div *ngIf="addProductos" class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Categorias</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" name="nombre" [(ngModel)]="nombreAdd" placeholder={{nombreAdd}}></td>
+       
+        <td><select (change)="addCategoriaSeleccionada($event.target.value)"  name="cats">
+          <option *ngFor="let cate of categorias" value={{cate}}>{{cate}}</option>
+          </select></td>
+
+        <td><input type="text" name="precio" [(ngModel)]="precioAdd" placeholder={{precioAdd}}></td>
+     
+        <td><button type="button" (click)="cambiarVistaVer()" class="btn btn-danger">Cancelar</button>
+        <button type="button" (click)="mandarDatosAdd()" class="btn btn-success">Aceptar</button>
+        </td>
+        </tr>
+        </tbody>
+  </table>
+</div>
