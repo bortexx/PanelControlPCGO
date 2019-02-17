@@ -88,7 +88,7 @@ export class RepositoryService {
     let myheader = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     let body = new HttpParams();
     body = body.set('nombre', nombre);
-    let urlPost = this.configUrl + url;
+    let urlPost = "http://pcgo.pve2.fpmislata.com/api/" + url;
     return this.http.post(urlPost, body, { headers: myheader }).subscribe(
       response => alert("ok"),
       error => alert("error")
