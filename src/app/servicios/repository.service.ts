@@ -9,7 +9,7 @@ export class RepositoryService {
 
   configService: any;
 
-  configUrl = 'http://localhost/pcgo/api/';
+  configUrl = 'http://pcgo.pve2.fpmislata.com/api/';
 
   getModules(url: any) {
     return this.http.get(this.configUrl + url);
@@ -20,14 +20,14 @@ export class RepositoryService {
     let body = new HttpParams();
     body = body.set('usuario', usuario);
     body = body.set('contrasenya', password);
-    return this.http.post("http://localhost/pcgo/api/comprueba", body, {
+    return this.http.post("http://pcgo.pve2.fpmislata.com/api/comprueba", body, {
       headers: myheader,
     });
   }
 
   deleteModules(id: any, tabla: String) {
     let myHeader = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.delete("http://localhost/pcgo/api/" + tabla + "/" + id).subscribe((data) => {
+    return this.http.delete("http://pcgo.pve2.fpmislata.com/api/" + tabla + "/" + id).subscribe((data) => {
       window.location.href = "";
     });
   }
@@ -39,7 +39,7 @@ export class RepositoryService {
     body = body.set('nombre', nombreCambiar);
     body = body.set('email', emailCambiar);
     body = body.set('usuario', usuarioCambiar);
-    let urlPut = this.configUrl + url;
+    let urlPut = "http://pcgo.pve2.fpmislata.com/api/" + url;
     return this.http.put(urlPut, body, { headers: myheader }).subscribe(
 
     );
@@ -50,7 +50,7 @@ export class RepositoryService {
     let body = new HttpParams();
     body = body.set('id', id);
     body = body.set('nombre', nombreCambiar);
-    let urlPut = this.configUrl + url;
+    let urlPut = "http://pcgo.pve2.fpmislata.com/api/" + url;
     return this.http.put(urlPut, body, { headers: myheader }).subscribe(
 
     );
@@ -63,7 +63,7 @@ export class RepositoryService {
     body = body.set('nombre', nombreCambiar);
     body = body.set('categoria', categoriaCambiar);
     body = body.set('precio', precioCambiar);
-    let urlPut = this.configUrl + url;
+    let urlPut = "http://pcgo.pve2.fpmislata.com/api/" + url;
     return this.http.put(urlPut, body, { headers: myheader }).subscribe(
 
     );
@@ -78,7 +78,7 @@ export class RepositoryService {
     body = body.set('nombre', nombre);
     body = body.set('correo', email);
     body = body.set('usuario', usuario);
-    let urlPost = this.configUrl + url;
+    let urlPost = "http://pcgo.pve2.fpmislata.com/api/" + url;
     return this.http.post(urlPost, body, { headers: myheader }).subscribe(
 
     );
@@ -102,7 +102,7 @@ export class RepositoryService {
     body = body.set('nombre', nombre);
     body = body.set('categorias', categorias);
     body = body.set('precio', precio);
-    let urlPost = this.configUrl + url;
+    let urlPost = "http://pcgo.pve2.fpmislata.com/api/" + url;
     return this.http.post(urlPost, body, { headers: myheader }).subscribe(
       response => alert("Producto Insertado Correctamente"),
       error => alert("error")
